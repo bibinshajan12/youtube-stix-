@@ -1,4 +1,5 @@
 # STIX vs 10 Ancient Weapons: Ranked Weakest to Deadliest
+Format: Short
 Packed: 2026-11-08 21:20 IST · Channel: CRAZELTIPS · Status: ready to upload (evening slot)
 
 **Unzip `stix-vs-10-ancient-weapons.zip` to get:**

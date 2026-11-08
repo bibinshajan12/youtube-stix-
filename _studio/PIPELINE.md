@@ -90,7 +90,7 @@ Fill in `details_template_whatifstix.txt` (the current template). `examples/deta
 ```
 YYYY-MM-DD/HHMM_IST_<slug>/
   <slug>.zip     (mp4 + thumbnail + cover frame + details txt, zip -9)
-  README.md      (title, slot, file table: see 2026-11-08 example)
+  README.md      (line 2 must be exactly `Format: Short`; then title, slot, file table: see the 2026-11-08 example)
 ```
 Add a row to the root `README.md` index. Commit to `main` with a clear message, then `git push origin main` (if the push fails for network reasons, retry up to 4× with backoff 2/4/8/16 s).
 Final message: title, link to the folder, duration, ElevenLabs credits used, and anything that needs a human eye.

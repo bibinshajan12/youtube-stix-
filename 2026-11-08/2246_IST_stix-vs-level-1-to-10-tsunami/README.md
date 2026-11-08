@@ -1,4 +1,5 @@
 # STIX vs Level 1 to 10 Tsunami
+Format: Short
 Packed: 2026-11-08 22:46 IST · Channel: CRAZELTIPS · Status: ready to upload (evening slot) · **v3**
 
 **Unzip `stix-vs-level-1-to-10-tsunami.zip` to get:**
