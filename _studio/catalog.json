@@ -1,0 +1,253 @@
+{
+ "sfx": {
+  "ballista": {
+   "file": "sfx/ballista.wav",
+   "raw_duration": 0.48,
+   "duration": 0.37,
+   "raw_onset": 0.0,
+   "peak_after_onset": 0.03,
+   "raw_peak_dbfs": 3.700000047683716,
+   "rms_dbfs": -10.199999809265137,
+   "brightness_hz": 3780,
+   "use": "heavy siege release thunk"
+  },
+  "bonk": {
+   "file": "sfx/bonk.wav",
+   "raw_duration": 1.0,
+   "duration": 0.45,
+   "raw_onset": 0.0,
+   "peak_after_onset": 0.16,
+   "raw_peak_dbfs": -0.5,
+   "rms_dbfs": -23.799999237060547,
+   "brightness_hz": 6716,
+   "use": "comedic weak hit (club, helmet tap)"
+  },
+  "bow": {
+   "file": "sfx/bow.wav",
+   "raw_duration": 1.0,
+   "duration": 0.875,
+   "raw_onset": 0.03,
+   "peak_after_onset": 0.02,
+   "raw_peak_dbfs": 0.800000011920929,
+   "rms_dbfs": -20.600000381469727,
+   "brightness_hz": 3855,
+   "use": "bow draw + release (starts with creak)"
+  },
+  "braam": {
+   "file": "sfx/braam.wav",
+   "raw_duration": 1.0,
+   "duration": 0.95,
+   "raw_onset": 0.0,
+   "peak_after_onset": 0.02,
+   "raw_peak_dbfs": 2.4000000953674316,
+   "rms_dbfs": -5.0,
+   "brightness_hz": 199,
+   "use": "ominous stinger for twist cards (\"it gets worse\")"
+  },
+  "clang": {
+   "file": "sfx/clang.wav",
+   "raw_duration": 2.0,
+   "duration": 1.245,
+   "raw_onset": 0.01,
+   "peak_after_onset": 0.07,
+   "raw_peak_dbfs": 2.4000000953674316,
+   "rms_dbfs": -16.200000762939453,
+   "brightness_hz": 1435,
+   "use": "metal-on-metal (mace, sword on armor)"
+  },
+  "crack": {
+   "file": "sfx/crack.wav",
+   "raw_duration": 1.0,
+   "duration": 0.44,
+   "raw_onset": 0.0,
+   "peak_after_onset": 0.01,
+   "raw_peak_dbfs": 3.9000000953674316,
+   "rms_dbfs": -15.199999809265137,
+   "brightness_hz": 2677,
+   "use": "wood break (shield split, ballista bolt through shield)"
+  },
+  "fire": {
+   "file": "sfx/fire.wav",
+   "raw_duration": 1.0,
+   "duration": 0.81,
+   "raw_onset": 0.0,
+   "peak_after_onset": 0.02,
+   "raw_peak_dbfs": 2.5,
+   "rms_dbfs": -9.899999618530273,
+   "brightness_hz": 3833,
+   "use": "fire burst, loop for sustained flames"
+  },
+  "impact": {
+   "file": "sfx/impact.wav",
+   "raw_duration": 1.0,
+   "duration": 0.34,
+   "raw_onset": 0.0,
+   "peak_after_onset": 0.02,
+   "raw_peak_dbfs": 2.5999999046325684,
+   "rms_dbfs": -16.299999237060547,
+   "brightness_hz": 1801,
+   "use": "body hit / knockback, layer under every hit"
+  },
+  "slam": {
+   "file": "sfx/slam.wav",
+   "raw_duration": 2.0,
+   "duration": 0.98,
+   "raw_onset": 0.0,
+   "peak_after_onset": 0.22,
+   "raw_peak_dbfs": 2.5,
+   "rms_dbfs": -10.800000190734863,
+   "brightness_hz": 473,
+   "use": "title/rank reveal hit"
+  },
+  "spin": {
+   "file": "sfx/spin.wav",
+   "raw_duration": 1.0,
+   "duration": 0.355,
+   "raw_onset": 0.02,
+   "peak_after_onset": 0.07,
+   "raw_peak_dbfs": 1.7999999523162842,
+   "rms_dbfs": -19.899999618530273,
+   "brightness_hz": 2574,
+   "use": "loop for whirling (sling, nunchaku, wind-up)"
+  },
+  "stab": {
+   "file": "sfx/stab.wav",
+   "raw_duration": 1.0,
+   "duration": 0.4,
+   "raw_onset": 0.0,
+   "peak_after_onset": 0.02,
+   "raw_peak_dbfs": 4.199999809265137,
+   "rms_dbfs": -10.5,
+   "brightness_hz": 6132,
+   "use": "blade slice / quick stab, metallic shing"
+  },
+  "swoosh": {
+   "file": "sfx/swoosh.wav",
+   "raw_duration": 3.0,
+   "duration": 2.015,
+   "raw_onset": 0.02,
+   "peak_after_onset": 1.42,
+   "raw_peak_dbfs": 2.5,
+   "rms_dbfs": -16.399999618530273,
+   "brightness_hz": 2105,
+   "use": "scene/rank transition whip"
+  },
+  "whoosh": {
+   "file": "sfx/whoosh.wav",
+   "raw_duration": 1.0,
+   "duration": 0.235,
+   "raw_onset": 0.48,
+   "peak_after_onset": 0.08,
+   "raw_peak_dbfs": 3.0,
+   "rms_dbfs": -14.399999618530273,
+   "brightness_hz": 2008,
+   "use": "any weapon swing, 0.1-0.2s before impact"
+  }
+ },
+ "music": {
+  "music1": {
+   "file": "music/music1.mp3",
+   "duration": 60.0,
+   "bpm_est": 120.0,
+   "loudness_per_5s_db": [
+    -16.5,
+    -16.600000381469727,
+    -16.700000762939453,
+    -16.5,
+    -17.0,
+    -17.399999618530273,
+    -14.600000381469727,
+    -14.600000381469727,
+    -14.399999618530273,
+    -13.5,
+    -14.399999618530273,
+    -16.0
+   ],
+   "loudest_window_s": [
+    45,
+    50
+   ],
+   "dynamic_range_db": 3.9000000953674316,
+   "brightness_hz": 1885,
+   "notes": "Unused take of the same prompt (epic cinematic, ancient, 120 BPM D minor brief). Not yet checked for vocals."
+  },
+  "music2": {
+   "file": "music/music2.mp3",
+   "duration": 60.0,
+   "bpm_est": 120.0,
+   "loudness_per_5s_db": [
+    -18.0,
+    -17.799999237060547,
+    -18.100000381469727,
+    -15.800000190734863,
+    -16.100000381469727,
+    -16.899999618530273,
+    -15.399999618530273,
+    -16.100000381469727,
+    -15.5,
+    -13.5,
+    -13.100000381469727,
+    -16.299999237060547
+   ],
+   "loudest_window_s": [
+    50,
+    55
+   ],
+   "dynamic_range_db": 5.0,
+   "brightness_hz": 2060,
+   "notes": "Unused take of the same prompt (epic cinematic, ancient, 120 BPM D minor brief). Not yet checked for vocals."
+  },
+  "music3": {
+   "file": "music/music3.mp3",
+   "duration": 60.0,
+   "bpm_est": 120.0,
+   "loudness_per_5s_db": [
+    -23.600000381469727,
+    -23.899999618530273,
+    -24.0,
+    -17.899999618530273,
+    -20.799999237060547,
+    -20.799999237060547,
+    -16.200000762939453,
+    -17.700000762939453,
+    -17.5,
+    -13.300000190734863,
+    -15.199999809265137,
+    -17.700000762939453
+   ],
+   "loudest_window_s": [
+    45,
+    50
+   ],
+   "dynamic_range_db": 10.699999809265137,
+   "brightness_hz": 1212,
+   "notes": "USED in STIX vs 10 Ancient Weapons. Best build-up (quiet intro, climax ~45-55s). Verified instrumental (Scribe: no words)."
+  },
+  "music4": {
+   "file": "music/music4.mp3",
+   "duration": 60.0,
+   "bpm_est": 80.0,
+   "loudness_per_5s_db": [
+    -12.600000381469727,
+    -13.0,
+    -14.199999809265137,
+    -12.800000190734863,
+    -11.899999618530273,
+    -13.100000381469727,
+    -11.800000190734863,
+    -13.600000381469727,
+    -13.699999809265137,
+    -14.0,
+    -14.0,
+    -17.600000381469727
+   ],
+   "loudest_window_s": [
+    30,
+    35
+   ],
+   "dynamic_range_db": 5.800000190734863,
+   "brightness_hz": 1790,
+   "notes": "Unused take of the same prompt (epic cinematic, ancient, 120 BPM D minor brief). Not yet checked for vocals."
+  }
+ }
+}

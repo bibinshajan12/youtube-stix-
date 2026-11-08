@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <clipPath id="headClip"><ellipse cx="960" cy="262" rx="112" ry="108"/></clipPath>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0" stop-color="#F4F2EE"/><stop offset="1" stop-color="#E4E0DA"/>
+    </radialGradient>
+  </defs>
+  <!-- background -->
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <ellipse cx="968" cy="996" rx="190" ry="20" fill="#D3CEC6"/>
+
+  <!-- ============ #16B8B0 TAILS (behind body) ============ -->
+  <g id="scarf-tails" stroke="#16191F" stroke-width="4" stroke-linejoin="round">
+    <path fill="#0E8A86" d="M 925 425 C 893 448 866 474 832 495 C 816 505 801 508 786 506 L 802 523 L 792 542 C 818 539 842 528 862 512 C 892 489 918 466 942 440 Z"/>
+    <path fill="#16B8B0" d="M 918 398 C 862 384 822 418 772 414 C 742 411 716 399 688 404 L 706 425 L 684 447 C 720 443 750 452 782 450 C 832 447 872 427 924 430 Z"/>
+    <path fill="none" stroke="#0E8A86" stroke-width="6" stroke-linecap="round" d="M 900 418 C 860 420 830 434 790 434"/>
+  </g>
+
+  <!-- ============ BACK ARM (relaxed) ============ -->
+  <g id="arm-back" fill="none" stroke="#16191F" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 976 428 Q 1008 470 1016 526 Q 1026 572 1044 604"/>
+  </g>
+  <g id="glove-back" transform="translate(1048 612) rotate(-28)" stroke="#16191F" stroke-width="3.5" stroke-linejoin="round">
+    <rect x="-13" y="-10" width="26" height="12" rx="4" fill="#4E3022"/>
+    <path d="M -14 0 Q -17 30 0 33 Q 16 30 14 0 Z" fill="#69432F"/>
+    <ellipse cx="15" cy="12" rx="6.5" ry="10" transform="rotate(-25 15 12)" fill="#69432F"/>
+    <path d="M -8 8 Q -9 20 -4 26" fill="none" stroke="#8A5E45" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- ============ LEGS ============ -->
+  <g id="legs" fill="none" stroke="#16191F" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 956 640 Q 942 720 934 798 Q 928 870 922 936"/>
+    <path d="M 968 640 Q 992 715 1004 792 Q 1014 868 1026 932"/>
+  </g>
+
+  <!-- ============ BOOTS ============ -->
+  <g id="boot-left" transform="translate(924 948)" stroke="#16191F" stroke-width="4" stroke-linejoin="round">
+    <path fill="#69432F" d="M 22 -34 L 24 6 Q 26 22 10 26 L -58 26 Q -82 24 -80 4 Q -76 -14 -44 -16 L -20 -20 L -20 -34 Q 0 -40 22 -34 Z"/>
+    <path fill="#4E3022" d="M -80 14 Q -78 26 -58 28 L 12 28 Q 24 26 25 14 L 25 24 Q 24 34 10 34 L -60 34 Q -82 32 -80 14 Z"/>
+    <path fill="#4E3022" d="M -22 -36 Q 0 -44 24 -36 L 24 -24 Q 0 -30 -22 -24 Z"/>
+    <path d="M -64 -4 Q -54 -12 -40 -12" fill="none" stroke="#A47658" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g id="boot-right" transform="translate(1030 944) rotate(4)" stroke="#16191F" stroke-width="4" stroke-linejoin="round">
+    <path fill="#69432F" d="M -22 -34 L -24 6 Q -26 22 -10 26 L 60 26 Q 86 24 84 4 Q 80 -14 46 -16 L 22 -20 L 22 -34 Q 0 -40 -22 -34 Z"/>
+    <path fill="#4E3022" d="M 84 14 Q 82 26 60 28 L -12 28 Q -24 26 -25 14 L -25 24 Q -24 34 -10 34 L 62 34 Q 86 32 84 14 Z"/>
+    <path fill="#4E3022" d="M 22 -36 Q 0 -44 -24 -36 L -24 -24 Q 0 -30 22 -24 Z"/>
+    <path d="M 52 -12 Q 66 -10 74 -2" fill="none" stroke="#A47658" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- ============ TORSO (tapered) ============ -->
+  <path id="torso" fill="#16191F" stroke="#16191F" stroke-width="6" stroke-linejoin="round"
+        d="M 940 412 Q 961 404 982 412 Q 978 530 972 642 L 952 642 Q 946 530 940 412 Z"/>
+
+  <!-- ============ FRONT ARM (hand on hip) ============ -->
+  <g id="arm-front" fill="none" stroke="#16191F" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 944 428 Q 900 470 874 518 Q 862 548 888 576 Q 910 598 936 608"/>
+  </g>
+  <g id="glove-front" transform="translate(944 612) rotate(-118)" stroke="#16191F" stroke-width="3.5" stroke-linejoin="round">
+    <rect x="-13" y="-10" width="26" height="12" rx="4" fill="#4E3022"/>
+    <path d="M -14 0 Q -17 28 0 30 Q 16 28 14 0 Z" fill="#69432F"/>
+    <ellipse cx="-14" cy="12" rx="6" ry="9" transform="rotate(25 -14 12)" fill="#69432F"/>
+  </g>
+
+  <!-- ============ #16B8B0 WRAP (front) ============ -->
+  <g id="scarf-wrap" stroke="#16191F" stroke-width="4" stroke-linejoin="round">
+    <path fill="#16B8B0" d="M 906 382 Q 962 410 1016 380 Q 1030 398 1022 420 Q 962 452 902 424 Q 893 402 906 382 Z"/>
+    <path fill="none" stroke="#0E8A86" stroke-width="6" stroke-linecap="round" d="M 912 412 Q 962 436 1012 408"/>
+    <path fill="#16B8B0" d="M 930 414 Q 948 404 962 418 Q 966 440 950 450 Q 930 450 926 434 Z"/>
+    <path fill="none" stroke="#0E8A86" stroke-width="4" stroke-linecap="round" d="M 938 426 Q 946 432 952 428"/>
+    <path fill="none" stroke="#6FE3DC" stroke-width="5" stroke-linecap="round" d="M 984 398 Q 998 394 1008 388"/>
+  </g>
+
+  <!-- ============ HEAD ============ -->
+  <g id="head">
+    <ellipse cx="960" cy="262" rx="112" ry="108" fill="#FFF8F0"/>
+    <g clip-path="url(#headClip)">
+      <path fill="#F3E6D6" d="M 840 230 Q 850 360 980 378 L 840 400 Z"/>
+      <path fill="#F3E6D6" d="M 846 236 C 856 320 910 368 990 374 C 930 380 860 350 846 236 Z"/>
+      <ellipse cx="1016" cy="300" rx="20" ry="11" fill="#F6C6B4" opacity="0.65"/>
+      <ellipse cx="905" cy="302" rx="14" ry="9" fill="#F6C6B4" opacity="0.45"/>
+    </g>
+    <ellipse cx="960" cy="262" rx="112" ry="108" fill="none" stroke="#16191F" stroke-width="6.5"/>
+    <path d="M 1040 214 Q 1056 236 1060 262" fill="none" stroke="#FFFDF8" stroke-width="7" stroke-linecap="round"/>
+
+    <!-- hair: three curved spikes up & to the right -->
+    <path id="hair" fill="#111318" stroke="#111318" stroke-width="3" stroke-linejoin="round"
+      d="M 852 222 C 850 176 892 146 944 140
+         C 948 112 966 86 1000 70 C 990 94 990 116 1000 134
+         C 1020 110 1050 98 1086 98 C 1064 112 1052 132 1050 152
+         C 1072 146 1094 150 1112 162 C 1090 166 1074 180 1068 200
+         C 1040 186 1006 182 972 186 C 930 190 888 204 852 222 Z"/>
+    <path d="M 870 196 C 868 182 878 166 892 160" fill="none" stroke="#2C313B" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- goggles resting on top of head -->
+    <g id="goggles" stroke="#16191F" stroke-linejoin="round">
+      <path d="M 851 214 Q 960 172 1071 204" fill="none" stroke="#2A2420" stroke-width="11" stroke-linecap="round"/>
+      <path d="M 958 172 Q 970 166 982 170" fill="none" stroke="#16191F" stroke-width="7" stroke-linecap="round"/>
+      <ellipse cx="1012" cy="172" rx="27" ry="31" fill="#F5A623" stroke-width="4.5"/>
+      <ellipse cx="1012" cy="172" rx="17" ry="21" fill="#FFD47E" stroke="#C47E12" stroke-width="3"/>
+      <path d="M 1004 160 Q 1008 154 1016 154" fill="none" stroke="#FFF6E2" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="928" cy="180" rx="34" ry="34" fill="#F5A623" stroke-width="4.5"/>
+      <ellipse cx="928" cy="180" rx="23" ry="23" fill="#FFD47E" stroke="#C47E12" stroke-width="3"/>
+      <path d="M 914 168 Q 920 160 931 159" fill="none" stroke="#FFF6E2" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="938" cy="192" r="3.5" fill="#FFF6E2" stroke="none"/>
+    </g>
+
+    <!-- eyebrows (curious: right one raised) -->
+    <path id="brow-l" d="M 921 236 Q 942 222 964 230" fill="none" stroke="#16191F" stroke-width="9" stroke-linecap="round"/>
+    <path id="brow-r" d="M 990 222 Q 1012 208 1034 220" fill="none" stroke="#16191F" stroke-width="9" stroke-linecap="round"/>
+
+    <!-- eyes: large vertical ovals, glancing toward camera-right -->
+    <g id="eyes">
+      <ellipse cx="946" cy="270" rx="15.5" ry="26" fill="#16191F"/>
+      <ellipse cx="1011" cy="267" rx="14" ry="25" fill="#16191F"/>
+      <circle cx="952" cy="258" r="6" fill="#FFFFFF"/><circle cx="943" cy="281" r="2.6" fill="#FFFFFF"/>
+      <circle cx="1016" cy="255" r="5.5" fill="#FFFFFF"/><circle cx="1008" cy="278" r="2.4" fill="#FFFFFF"/>
+    </g>
+
+    <!-- mouth: confident lopsided smile -->
+    <g id="mouth">
+      <path d="M 950 318 Q 982 340 1022 312 Q 1006 332 986 334 Q 964 334 950 318 Z" fill="#3A1F22" stroke="#16191F" stroke-width="4.5" stroke-linejoin="round"/>
+      <path d="M 970 330 Q 984 324 998 331" fill="none" stroke="#E7737A" stroke-width="5" stroke-linecap="round"/>
+      <path d="M 1018 304 Q 1026 310 1024 318" fill="none" stroke="#16191F" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+</svg>

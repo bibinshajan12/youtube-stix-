@@ -1,0 +1,33 @@
+# Topic backlog: one per day, top to bottom
+Format: "Stix vs …" countdown ranked weakest → strongest. Tick `[x]` when done.
+
+- [x] Stix vs 10 Ancient Weapons (#1 Greek Fire), 2026-11-08
+- [ ] Stix vs 10 Viking Weapons (#1 Ulfberht sword)
+- [ ] Stix vs 10 Ninja Tools (#1 the smoke bomb)
+- [ ] Stix vs 10 Medieval Siege Weapons (#1 the trebuchet)
+- [ ] Stix vs 10 Samurai Weapons (#1 the katana)
+- [ ] Stix vs 10 Pirate Weapons (#1 the ship's cannon broadside)
+- [ ] Stix vs 10 Roman Legion Tactics (#1 the testudo)
+- [ ] Stix vs 10 Types of Gladiator (#1 the murmillo)
+- [ ] Stix vs 10 Castle Defenses (#1 the murder hole)
+- [ ] Stix vs 10 Legendary Swords from history (#1 Joyeuse)
+- [ ] Stix vs 10 Deadliest Animals (#1 the mosquito)
+- [ ] Stix vs 10 Ancient Armors (#1 Gothic plate)
+- [ ] Stix vs 10 Survival Tools (#1 the knife)
+- [ ] Stix vs 10 Booby Traps from history (#1 the pit trap)
+- [ ] Stix vs 10 Ancient Inventions (#1 the Antikythera mechanism)
+- [ ] Stix vs 10 Dinosaurs ranked by danger (#1 Utahraptor)
+- [ ] Stix vs 10 Deep-Sea Creatures (#1 the giant squid)
+- [ ] Stix vs 10 Spartan Training Rules (#1 the agoge)
+- [ ] Stix vs 10 Mongol Tactics (#1 the feigned retreat)
+- [ ] Stix vs 10 Egyptian Weapons (#1 the war chariot)
+- [ ] Stix vs 10 Medieval Punishments made silly (#1 the pillory), keep it cartoonish, no gore
+- [ ] Stix vs 10 Lost Ancient Wonders (#1 the Colossus of Rhodes)
+- [ ] Stix vs 10 Knight Weapons (#1 the lance)
+- [ ] Stix vs 10 Aztec Weapons (#1 the macuahuitl)
+- [ ] Stix vs 10 Storm Types (#1 the tornado)
+- [ ] Stix vs 10 Ancient Ships (#1 the trireme)
+- [ ] Stix vs 10 Chinese Ancient Inventions in War (#1 the fire lance)
+- [ ] Stix vs 10 Desert Survival Mistakes (#1 drinking too fast)
+- [ ] Stix vs 10 Volcano Facts ranked by scariness (#1 the pyroclastic flow)
+- [ ] Stix vs 10 Legendary Shields (#1 the scutum)
