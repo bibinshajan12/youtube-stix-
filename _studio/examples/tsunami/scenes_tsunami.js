@@ -458,7 +458,7 @@ function render(t) {
   vignette(c, .35);
   hud(c, t, li);
   commentBubble(c, t);
-  text(c, '@CRAZELTIPS', W / 2, 1530, 30, 'rgba(255,255,255,.55)', { weight: 800, stroke: 5, sc: 'rgba(0,0,0,.4)' });
+  text(c, '@WHATIFSTIXANIM', W / 2, 1530, 30, 'rgba(255,255,255,.55)', { weight: 800, stroke: 5, sc: 'rgba(0,0,0,.4)' });
   captions(c, t);
 }
 window.render = render;

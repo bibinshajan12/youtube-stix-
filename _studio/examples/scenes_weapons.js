@@ -570,7 +570,7 @@ function captions(c, t) {
 function header(c, t) {
   c.save(); text(c, 'STIX vs', W / 2, 112, 44, '#FFFFFF', { stroke: 9, shadow: 'rgba(0,0,0,.5)' });
   text(c, '10 ANCIENT WEAPONS', W / 2, 172, 60, C.gold, { stroke: 11, shadow: 'rgba(0,0,0,.5)' }); c.restore();
-  text(c, '@CRAZELTIPS', W / 2, 1515, 30, 'rgba(255,255,255,.55)', { weight: 800, stroke: 5, sc: 'rgba(0,0,0,.4)' });
+  text(c, '@WHATIFSTIXANIM', W / 2, 1515, 30, 'rgba(255,255,255,.55)', { weight: 800, stroke: 5, sc: 'rgba(0,0,0,.4)' });
 }
 
 // ================================================================ main render

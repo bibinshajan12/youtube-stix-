@@ -1,5 +1,15 @@
 # STIX daily Short pipeline
 
+## Channel (from 2026-11-09)
+| | |
+|---|---|
+| Channel | **What If STIX** |
+| Handle / URL | @whatifstixanim · https://www.youtube.com/@whatifstixanim/ |
+| Channel ID | `UCySkb8kxrQA0VryTvaN9Ovw` (Studio URL must contain it) |
+| On-screen watermark | `@WHATIFSTIXANIM` |
+| Credit line | "Animation, character (Stix), script and editing: What If STIX (original work)" |
+Never write CRAZELTIPS in new videos, READMEs or details sheets.
+
 The daily session follows these steps to make **one** STIX Short and push it to this repo.
 Quality bar: `examples/` (STIX vs 10 Ancient Weapons) shows the expected level.
 
@@ -68,13 +78,13 @@ Verify: duration < 60 s, 1080×1920, 60 fps, loudness ≈ -14 LUFS. Extract 8–
 Adapt `thumb.js`: the best action frame, no captions, a big 2-line title (top) and a hook (bottom, teal pill). Save `<slug>_thumbnail.jpg` (≤ 2 MB). Save the plain frame as `<slug>_cover_frame.png`.
 
 ## 9. YouTube Studio details: `<slug>_YouTube_Studio.txt`
-Follow `examples/details_weapons.txt` exactly:
+Fill in `details_template_whatifstix.txt` (the current template). `examples/details_weapons.txt` shows a filled-in example:
 - **Title** with `#shorts` and the word **Aura**, max 100 chars:
   - evening (default slot, 6:00 PM IST): `The Legend of [NAME] [emoji] [hook] Aura #shorts`
   - morning (10:00 AM IST): `Wildest [THING] Ever [emoji] Top N Aura Moments #shorts`
 - **Description:** hook line, the full ranking, a CTA, then the credits block: source clips ("No third-party footage"), voice (ElevenLabs "Liam"), music (library track name, ElevenLabs Music, licence + links), SFX, font (Inter, OFL 1.1), history sources (links), then 3–5 hashtags.
 - **Tags:** 10–15 tags, ≤ 500 chars total. Include the save → reopen check instructions.
-- **Settings:** Audience "Not made for kids", Visibility Public, altered content No, plus the rest of the checklist, channel check **CRAZELTIPS, not What If STIX**, and a pinned comment.
+- **Settings:** Audience "Not made for kids", Visibility Public, altered content No, plus the rest of the checklist, channel check **What If STIX (@whatifstixanim), not CRAZELTIPS**, and a pinned comment.
 
 ## 10. Package + push
 ```

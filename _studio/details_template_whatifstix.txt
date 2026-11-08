@@ -1,0 +1,85 @@
+# YouTube Studio upload sheet: <TITLE OF SHORT>
+File: <slug>.mp4 (<NN> s, 1080×1920, 60 fps, -14 LUFS)
+Slot: <morning 10:00 AM IST | evening 6:00 PM IST>
+
+---------------------------------------------------------------------
+## 0. CHANNEL CHECK (do this first)
+Top-right avatar → the channel name must read **What If STIX** (@whatifstixanim).
+If it says **CRAZELTIPS**, go to Avatar → Switch account → What If STIX before you upload.
+After upload, check the Studio URL contains: studio.youtube.com/channel/UCySkb8kxrQA0VryTvaN9Ovw
+Channel page: https://www.youtube.com/@whatifstixanim/
+
+---------------------------------------------------------------------
+## 1. TITLE (<n> chars, limit 100), must include the word "Aura" and #shorts
+Evening: The Legend of <NAME> <emoji> <hook> Aura #shorts
+Morning: Wildest <THING> Ever <emoji> Top <N> Aura Moments #shorts
+
+---------------------------------------------------------------------
+## 2. DESCRIPTION (paste everything between the lines)
+---------------------------------------------------------------------
+<Hook line: one sentence, with an open loop>
+
+<The full countdown/story: one line per level or item, with the key fact>
+
+<Accuracy note when needed, e.g. "Every number here is run-up height, not wave height.">
+
+👍 <Like line tied to the story>
+🔔 Subscribe to What If STIX for a new "what if" every day.
+💬 <Comment prompt: ask what Stix should survive or try next>
+
+━━━━━━━━━━━━━━━━━━
+🎬 CREDITS
+Animation, character (Stix), script and editing: What If STIX (original work)
+Production assisted by AI tools (listed below)
+
+🎞️ SOURCE CLIPS
+No third-party footage is used. Every frame is original 2D animation made for this channel.
+
+🎙️ VOICEOVER
+<ElevenLabs voice "Liam" (ElevenLabs Terms of Service), https://elevenlabs.io/terms-of-use
+ or: "George" voice from Kokoro-82M (open-weight model by hexgrad), Apache License 2.0, https://huggingface.co/hexgrad/Kokoro-82M>
+
+🎵 MUSIC
+"<track name>": original track generated with ElevenLabs Music for this channel
+Licence: ElevenLabs Terms of Service (commercial use on paid plan)
+https://elevenlabs.io/music · https://elevenlabs.io/terms-of-use
+
+🔊 SOUND EFFECTS
+ElevenLabs Sound Effects (ElevenLabs Terms of Service)<, plus original synthesized sounds>
+https://elevenlabs.io/sound-effects
+
+🔤 FONT
+Inter by Rasmus Andersson, SIL Open Font License 1.1
+https://rsms.me/inter/
+
+📚 SOURCES
+<one line per fact source, with a link>
+
+#shorts #whatifstix #stix #<topic> #<topic2>
+---------------------------------------------------------------------
+
+## 3. TAGS (10–15 tags, ≤ 500 chars). Always include: what if stix, stix, stickman animation, aura
+<tag1>, <tag2>, ..., what if stix
+
+To check the tags saved: click Save → close the video → reopen it in Content → Details → Show more → Tags.
+All tags should still be there. If the field is empty, paste again, click outside the box, then Save.
+
+---------------------------------------------------------------------
+## 4. SETTINGS CHECKLIST
+[ ] Channel is **What If STIX** (@whatifstixanim), NOT CRAZELTIPS
+[ ] Audience: **No, it's not made for kids**
+[ ] Age restriction: No
+[ ] Visibility: **Public** (or Schedule → slot time IST)
+[ ] Altered or synthetic content: **No** (a cartoon, nothing realistic, no real person; AI tools disclosed in the description)
+[ ] Paid promotion: No
+[ ] Category: Education (or Film & Animation)
+[ ] Video language + title/description language: English
+[ ] Caption certification: None (captions are burned in)
+[ ] Licence: Standard YouTube Licence
+[ ] Allow remixing: On
+[ ] Comments: On · Sort by: Top
+[ ] Shorts thumbnail (mobile app): upload <slug>_thumbnail.jpg, or choose the frame at <mm:ss>
+
+---------------------------------------------------------------------
+## 5. PINNED COMMENT
+<Question that asks viewers to vote on the next "what if" topic>

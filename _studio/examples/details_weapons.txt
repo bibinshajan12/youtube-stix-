@@ -4,9 +4,9 @@ Slot: evening (6:00 PM IST), using the "The Legend of [NAME]" template
 
 ---------------------------------------------------------------------
 ## 0. CHANNEL CHECK (do this first)
-Top-right avatar → the channel name must read **CRAZELTIPS** (@crazeltips).
-If it says **What If STIX**, go to Avatar → Switch account → CRAZELTIPS before you upload.
-After upload, check the URL contains studio.youtube.com/channel/UCQw8oyclrsD_S8ai-UO0v9Q
+Top-right avatar → the channel name must read **What If STIX** (@whatifstixanim).
+If it says **CRAZELTIPS**, go to Avatar → Switch account → What If STIX before you upload.
+After upload, check the URL contains studio.youtube.com/channel/UCySkb8kxrQA0VryTvaN9Ovw
 
 ---------------------------------------------------------------------
 ## 1. TITLE (63 chars, limit 100)
@@ -37,7 +37,7 @@ Follow for more Stix adventures every day.
 
 ━━━━━━━━━━━━━━━━━━
 🎬 CREDITS
-Animation, character (Stix), script and editing: CRAZELTIPS (original work)
+Animation, character (Stix), script and editing: What If STIX (original work)
 Production assisted by AI tools (listed below)
 
 🎞️ SOURCE CLIPS
@@ -74,7 +74,7 @@ Rankings are for entertainment and reflect battlefield impact, not exact science
 
 ## 3. TAGS (15 tags, 209 chars, limit 500)
 Paste into Show more → Tags as one line:
-stix, stickman animation, ancient weapons, ancient weapons ranked, weakest to strongest, greek fire, ballista, khopesh, composite bow, history shorts, animated history, stickman vs, aura, tier list, crazeltips
+stix, stickman animation, ancient weapons, ancient weapons ranked, weakest to strongest, greek fire, ballista, khopesh, composite bow, history shorts, animated history, stickman vs, aura, tier list, what if stix
 
 To check the tags saved: click Save → close the video → reopen it in Content → Details → Show more → Tags.
 All 15 should still be there. If the field is empty, paste again, click outside the box, then Save.

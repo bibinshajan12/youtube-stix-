@@ -1,5 +1,9 @@
 # youtube-stix-
-Daily STIX YouTube Shorts for **CRAZELTIPS**. There's one folder per day, and inside it one folder per Short, named by packing time (IST).
+Daily STIX YouTube Shorts for **What If STIX**: [@whatifstixanim](https://www.youtube.com/@whatifstixanim/) (channel ID `UCySkb8kxrQA0VryTvaN9Ovw`).
+There's one folder per day, and inside it one folder per Short, named by packing time (IST).
+
+> **Channel switch:** from **2026-11-09** onward every Short is made and labelled for **What If STIX**.
+> The two 2026-11-08 Shorts below were packaged for CRAZELTIPS; their details sheets still say CRAZELTIPS.
 
 Each Short folder has:
 - `<slug>.zip`: the video (1080×1920, 60 fps), the thumbnail, a cover frame and the YouTube Studio details (title, description, credits, tags, settings)
