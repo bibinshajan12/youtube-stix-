@@ -24,14 +24,22 @@ v, _ = sf.read('vo.wav'); v = np.stack([v, v], 1) if v.ndim == 1 else v; put(vo,
 put(mus, 0, load(LIB + CAT['music']['music3']['file'])[:N])
 levels = ['l1','l2','l3','l4','l5','l6','l7','l8','l9','l10']
 PAUSE0 = T('l7') + .85; PAUSE1 = T('l7b') + 2.95; CLIMB0 = T('l7b') - .25
-ZOOM0 = T('l10') + .1; ZOOM1 = T('l10b') + 1.2; SLIDE1 = ZOOM1 - .2 + .75; SURGE0 = SLIDE1 + .1; BACK0 = T('out') + .55
+ZOOM0 = T('l10') + .1; ZOOM1 = T('l10b') + 1.2; SLIDE1 = ZOOM1 - .2 + .75; SURGE0 = SLIDE1 + .1; BACK0 = T('cta1') - .05
 for i, k in enumerate(levels):
     hit('slam', T(k) + .05, .28 + .035 * i)
     if i < 9: put(sfx, T(k) + .12, rush(1.6 if i == 0 else 1.1 + .06 * i, .3 + .07 * i), .35 + .05 * i); hit('impact', T(k) + .2, .25 + .04 * i)
 hit('braam', PAUSE0, .9); hit('whoosh', CLIMB0 + .1, .5); hit('swoosh', PAUSE1, .45, 2.0); put(sfx, PAUSE1, rush(.9, .6), .55)
 hit('swoosh', ZOOM1 - .5, .5, 2.0); hit('braam', ZOOM0 + .2, .7)
 hit('crack', SLIDE1, .9); hit('impact', SLIDE1, .9); put(sfx, SLIDE1 - .7, rumble(2.4), .8)
-put(sfx, SURGE0, rush(2.4, .8, .5), .85); hit('impact', T('c3') + .55, .6); hit('swoosh', BACK0 + .3, .4, 2.0)
+put(sfx, SURGE0, rush(2.4, .8, .5), .85); hit('impact', T('c3') + .55, .6); hit('swoosh', BACK0 + .4, .4, 2.0)
+def bell(d=1.6):
+    t = np.arange(int(d * SR)) / SR; y = sum(np.sin(2 * np.pi * f * t) * np.exp(-t * k) * a for f, k, a in ((1320, 3, 1), (2640, 5, .5), (3960, 7, .25), (1760, 4, .3)))
+    return np.stack([y, y], 1) / 2
+hit('whoosh', T('l2') + .3, .5)                                   # Stix leaps from the floating car
+hit('whoosh', T('cta1') + .7, .5); hit('impact', T('cta1') + .85, .8); hit('slam', T('cta1') + .87, .35)   # like smash
+hit('whoosh', T('cta2') + .45, .6); put(sfx, T('cta2') + 1.05, rush(.8, .7, .05), .7)                        # dive onto the raft
+hit('impact', T('cta2') + 1.95, .7); hit('bonk', T('cta2') + 1.95, .5); put(sfx, T('cta2') + 2.0, bell(), .45)  # stomp -> subscribed + bell
+hit('swoosh', T('cta3') + .1, .35, 1.6)
 # music: duck under voice + dip during the level-7 freeze
 act = np.convolve((np.abs(vo[:, 0]) > .015).astype(float), np.ones(int(.2*SR))/int(.2*SR), 'same'); act = np.clip(act*2.5, 0, 1)
 g = .40 - .19 * act; t = np.arange(N) / SR

@@ -13,7 +13,7 @@ const PAUSE0 = T('l7') + .85, PAUSE1 = T('l7b') + 2.95;           // water froze
 const CLIMB0 = T('l7b') - .25, CLIMB1 = PAUSE1 - .15;
 const ZOOM0 = T('l10') + .1, ZOOM1 = T('l10b') + 1.2;
 const SLIDE0 = ZOOM1 - .2, SLIDE1 = SLIDE0 + .75, SURGE0 = SLIDE1 + .1, SURGE1 = SURGE0 + 1.7;
-const BACK0 = T('out') + .55, BACK1 = END - .12;
+const BACK0 = T('cta1') - .05, BACK1 = BACK0 + 1.25;
 
 // ---------------------------------------------------------------- water level timeline
 function levelIndex(t) { let k = -1; LV.forEach((l, i) => { if (t >= T(l[0])) k = i; }); return k; }
@@ -28,7 +28,7 @@ function waterH(t) {
     }
     if (t >= s + .15) h = lerp(prev, tgt, i === 0 ? eOut(prog(t, s + .15, s + 1.0)) : spring(t - s - .15, 9, 6));
   }
-  const b = eIO(prog(t, BACK0 + .2, BACK1 - .1)); return h * (1 - b);
+  return h;
 }
 function wTime(t) { if (t < PAUSE0) return t; if (t < PAUSE1) return PAUSE0; return t - (PAUSE1 - PAUSE0); }
 const FRONT = t => lerp(-12, 60, eOut(prog(t, T('l1') + .1, T('l1') + 1.1)));
@@ -37,9 +37,9 @@ const FRONT = t => lerp(-12, 60, eOut(prog(t, T('l1') + .1, T('l1') + 1.1)));
 let CAM = { s: 18, cx: 21.9, gY: 1330, sx: 0 };
 // sequential camera: wide hook -> close street level (L1-4) -> step back (L5-6) -> full tower (L7-9) -> 600 m reveal (L10) -> back to hook
 const SHOTS = () => [
-  [0, 18, 21.9, 1330, .1], [T('l1') - .15, 110, 12.6, 1330, .95], [T('l2') - .15, 92, 13.4, 1330, .8], [T('l3') - .15, 72, 14.4, 1330, .8],
-  [T('l4') - .15, 57, 15.8, 1330, .8], [T('l5') - .15, 41, 17.6, 1330, .9], [T('l6') - .15, 32, 20.2, 1330, .9], [T('l7') - .15, 18, 21.9, 1330, 1.0],
-  [ZOOM0, 1.42, 126.6, 1300, ZOOM1 - ZOOM0], [BACK0, 18, 21.9, 1330, BACK1 - BACK0]];
+  [0, 18, 21.9, 1330, .1], [T('l1') - .15, 105, 15.8, 1330, .95], [T('l2') - .15, 78, 18.3, 1330, .8], [T('l3') - .15, 63, 19.6, 1330, .8],
+  [T('l4') - .15, 51, 20.4, 1330, .8], [T('l5') - .15, 40, 20.8, 1330, .9], [T('l6') - .15, 31, 21.3, 1330, .9], [T('l7') - .15, 18, 21.9, 1330, 1.0],
+  [ZOOM0, 1.42, 126.6, 1300, ZOOM1 - ZOOM0], [BACK0, 40, 22, 2700, BACK1 - BACK0]];
 let _SH = null;
 function camAt(t) {
   _SH = _SH || SHOTS(); let s = _SH[0][1], cx = _SH[0][2], gy = _SH[0][3];
@@ -147,9 +147,6 @@ function building(c, t, xray) {
   wrect(c, 26.1, 2.6, 29.9, 2.85, '#F2EEE6', C.ink, 2); wpoly(c, [[26.1, 2.6], [29.9, 2.6], [29.9, 2.45], [26.1, 2.45]], 'rgba(0,0,0,.25)', null);
   // outline
   wrect(c, W0, 0, W1, ROOF, null, C.ink, 3);
-  // balcony at 12 m (Stix)
-  wrect(c, 20.6, BAL - .28, W0, BAL, '#B8B2A6', C.ink, 2); wrect(c, 20.6, BAL, W0, BAL + 1.05, 'rgba(160,210,235,.4)', null);
-  wline(c, [[20.6, BAL], [20.6, BAL + 1.05], [W0, BAL + 1.05]], 2.2, C.ink);
   // roof: parapet, stair room, water tank, antenna
   wrect(c, W0 - .1, ROOF, W1 + .1, ROOF + .55, '#D8D1C4', C.ink, 2);
   wrect(c, 24, ROOF + .55, 27.4, ROOF + 3, '#E2DCCF', C.ink, 2); wrect(c, 24.5, ROOF + .55, 25.6, ROOF + 2.4, '#7A5A40', C.ink, 1.5);
@@ -161,20 +158,114 @@ function building(c, t, xray) {
   c.restore();
 }
 // STIX in the main view: tiny symbol when far, the full rig when the camera is close
-function miniStix(c, x, h, t, state) {
-  const hp = 1.75 * CAM.s;
-  if (hp >= 64) { const p = state === 'run' ? locomote(stixPose(t), t * 500, 1, true) : stixPose(t);
-    drawChar(c, breathe(p, t), { x: X(x), gy: Y(h), face: -1, t, scale: hp / 760, noShadow: true, speed: state === 'run' ? 1 : .3 }); return; }
+function miniStix(c, x, h, t, state, face = -1) {
+  const hp = 1.75 * CAM.s * (t >= BACK0 ? 1.6 : 1);
+  if (hp >= 64) { let p = stixPose(t);
+    if (state === 'run') p = locomote(Object.assign({}, p, { mouth: 'open', mo: .5 }), t * 500, 1, true);
+    if (state === 'climb') p = Object.assign({}, p, { ua1: 160 + Math.sin(t * 16) * 18, la1: 175, ua2: 160 - Math.sin(t * 16) * 18, la2: 175, f1y: -30 * Math.max(0, Math.sin(t * 16)), f2y: -30 * Math.max(0, -Math.sin(t * 16)), mouth: 'grit' });
+    if (state === 'jump') p = Object.assign({}, p, { ua1: 150, la1: 170, ua2: -150, la2: -170, f1y: -70, f1x: 50, f2y: -40, f2x: -40, mouth: 'open', mo: .8, lean: 10 });
+    if (state === 'point') p = Object.assign({}, p, { ua1: 95, la1: 80, mouth: 'grin', mo: .3 });
+    drawChar(c, breathe(p, t), { x: X(x), gy: Y(h), face, t, scale: hp / 760, noShadow: true, speed: state === 'idle' ? .3 : 1 }); return; }
   const [sx, sy] = P2S(x, h); const k = Math.max(hp, 6) / 32;
   c.save(); c.translate(sx, sy); c.scale(k, k); c.lineCap = 'round';
-  const run = state === 'run', ph = t * 18;
+  c.scale(face === 1 ? -1 : 1, 1); const run = state === 'run' || state === 'climb' || state === 'jump', ph = t * 18;
   const l1 = run ? Math.sin(ph) * 9 : 3, l2 = run ? -Math.sin(ph) * 9 : -4;
   line(c, [[0, -14], [l1, 0]], 3, C.ink); line(c, [[0, -14], [l2, 0]], 3, C.ink); line(c, [[0, -14], [0, -24]], 3.4, C.ink);
-  const arm = state === 'wave' ? -32 + Math.sin(t * 12) * 4 : (run ? -20 + Math.sin(ph) * 4 : -15);
+  const arm = (state === 'wave' || state === 'point') ? -32 + Math.sin(t * 12) * 4 : (run ? -20 + Math.sin(ph) * 4 : -15);
   line(c, [[0, -22], [7, arm]], 2.6, C.ink); line(c, [[0, -22], [-6, run ? -15 - Math.sin(ph) * 4 : -15]], 2.6, C.ink);
   line(c, [[0, -24], [-8 - (run ? 3 : 0), -23 + Math.sin(t * 9) * 1.5]], 2.6, C.scarf);
   ell(c, .5, -28.5, 5.2, 5, C.head, C.ink, 1.8); ell(c, 1.5, -32.8, 2, 1.4, C.amber); line(c, [[-3, -33], [2, -36], [4, -34]], 1.6, C.hair);
   c.restore();
+}
+// ---------------------------------------------------------------- fire escape (outside the tower's sea-facing wall)
+const XA = 20.6, XB = 22.55, endX = f => (f % 2 ? XA : XB);
+function fireEscape(c, t) {
+  world(c, 0, 0);
+  for (let f = 1; f <= 14; f++) { const h = f * 3;
+    wrect(c, 20.0, h - .16, BX0, h, '#5A606C', C.ink, 1.6);
+    wline(c, [[20.0, h], [20.0, h + 1.0], [BX0, h + 1.0]], 2, '#3A3F48');
+    for (let x = 20.35; x < BX0; x += .45) wline(c, [[x, h], [x, h + 1.0]], 1, '#3A3F48');
+    if (f < 14) { const x0 = endX(f), x1 = endX(f + 1); wline(c, [[x0, h], [x1, h + 3 - .16]], 3, '#4A505C');
+      for (let k = 1; k < 8; k++) { const u = k / 8; const sx = lerp(x0, x1, u), sy = lerp(h, h + 2.84, u); wline(c, [[sx - .18, sy], [sx + .18, sy]], 1.6, '#2A2F38'); }
+      wline(c, [[x0, h + .95], [x1, h + 3.8]], 1.4, '#3A3F48'); }
+    wline(c, [[20.05, h - .16], [21.2, h - 1.1]], 1.2, '#3A3F48'); }
+  // drop ladder to 1.6 m and a short roof ladder
+  wline(c, [[XA - .2, 3], [XA - .2, 1.6]], 1.6, '#3A3F48'); wline(c, [[XA + .2, 3], [XA + .2, 1.6]], 1.6, '#3A3F48'); for (let y = 1.75; y < 3; y += .3) wline(c, [[XA - .2, y], [XA + .2, y]], 1.2, '#3A3F48');
+  wline(c, [[XB, 42], [23.3, 45.55]], 2, '#3A3F48');
+  // tank ladder
+  for (const lx of [28.75, 29.15]) wline(c, [[lx, ROOF + .55], [lx, ROOF + 4.1]], 1.4, '#3A3F48'); for (let y = ROOF + .8; y < ROOF + 4.1; y += .35) wline(c, [[28.75, y], [29.15, y]], 1.1, '#3A3F48');
+  c.restore();
+}
+// ---------------------------------------------------------------- STIX path: always climbing to stay above the water
+let _WP = null;
+const RAFTX = 14.5;
+function waypoints() {
+  const W = [], SX0 = 17.4; const push = (...a) => W.push(a);
+  push(0, SX0, 0, 'idle');
+  let a = T('l1') - .1; push(a, SX0, 0, 'run'); push(a + .3, 16.7, 0, 'climb'); push(a + .65, 16.3, 1.45, 'run'); push(a + .9, 15.5, 1.45, 'idle');
+  const j = T('l2') + .15; push(j, 15.5, 1.45, 'jump'); push(j + .7, XA, 2.2, 'climb'); push(j + 1.0, XA, 3, 'idle');
+  const fl = (t0, dur, f0, f1) => { push(t0, endX(f0), f0 * 3, 'run'); for (let k = 1; k <= f1 - f0; k++) push(t0 + dur * k / (f1 - f0), endX(f0 + k), (f0 + k) * 3, k === f1 - f0 ? 'idle' : 'run'); };
+  fl(T('l3') + .05, .75, 1, 2); fl(T('l4') + .05, .75, 2, 3); fl(T('l5') + .05, .75, 3, 4); fl(T('l6') + .05, .75, 4, 5);
+  fl(CLIMB0, CLIMB1 - CLIMB0, 5, 8); fl(T('l8') - .05, 1.05, 8, 11); fl(T('l9') - .3, 1.05, 11, 14);
+  let r = T('l9') + .75; push(r, XB, 42, 'climb'); push(r + .35, 23.6, ROOF, 'run'); push(r + .7, 25.6, ROOF, 'idle');
+  r = T('l10') - .15; push(r, 25.6, ROOF, 'run'); push(r + .35, 28.95, ROOF, 'climb'); push(r + .85, 28.95, ROOF + 4.1, 'run'); push(r + 1.05, 30.0, ROOF + 4.1, 'idle');
+  r = T('cta1') + .45; push(r, 30.0, ROOF + 4.1, 'jump'); push(r + .5, 30.9, ROOF + 4.1, 'idle');           // like-smash hop
+  r = T('cta2') + .25; push(r, 30.9, ROOF + 4.1, 'jump'); push(r + .85, RAFTX, 40.6, 'idle');                 // dive onto the subscribe raft
+  r = T('cta2') + 1.6; push(r, RAFTX, 40.6, 'jump'); push(r + .35, RAFTX, 40.6, 'idle');                    // stomp
+  push(T('cta3'), RAFTX, 40.6, 'point'); push(END + 1, RAFTX, 40.6, 'point');
+  return W;
+}
+function stixPath(t) {
+  _WP = _WP || waypoints(); const W = _WP; let i = 0; while (i < W.length - 1 && t >= W[i + 1][0]) i++;
+  const [t0, x0, h0, st] = W[i], nx = W[Math.min(i + 1, W.length - 1)]; const u = nx[0] > t0 ? clamp((t - t0) / (nx[0] - t0)) : 1;
+  let x = lerp(x0, nx[1], u), h = lerp(h0, nx[2], u);
+  if (st === 'jump') { const hop = Math.max(t > T('cta1') && t < T('cta2') ? 2.2 : 1.4, Math.abs(nx[1] - x0) * .35); h += hop * 4 * u * (1 - u); }
+  if (t >= W[W.length - 4][0] - 2.5 && x === RAFTX && Math.abs(h - 40.6) < .01) h = raftH(t) + .3;   // ride the raft
+  let face = -1; for (let k = i; k >= 0; k--) { const d = (W[Math.min(k + 1, W.length - 1)][1] - W[k][1]); if (Math.abs(d) > .05) { face = d > 0 ? 1 : -1; break; } }
+  if (st === 'point') face = 1;
+  return { x, h, st: (st === 'idle' || st === 'point') ? st : (u >= 1 ? 'idle' : st), face };
+}
+// ---------------------------------------------------------------- call-to-action set pieces
+const raftH = t => surfaceY(RAFTX, 40, wTime(t)) + .1;
+function raftX(t) { return lerp(-14, RAFTX, eOut(prog(t, T('cta1') + .9, T('cta2') + .35))); }
+function subscribeRaft(c, t) {
+  if (t < T('cta1') + .9) return; const x = raftX(t), h = raftH(t); const done = t > T('cta2') + 1.95;
+  world(c, x, h, Math.sin(wTime(t) * 2) * .04);
+  const press = 1 - .25 * Math.exp(-Math.max(0, t - T('cta2') - 1.95) * 9) * (t > T('cta2') + 1.95 ? 1 : 0);
+  c.scale(1, press); wrect(c, -4.8, -.5, 4.8, .9, 'rgba(0,0,0,.25)', null, 0, .5);
+  wrect(c, -4.6, -.35, 4.6, 1.15, done ? '#3A3D45' : '#E8262B', C.ink, 3, .55);
+  c.scale(1, -1); c.font = `900 ${done ? .78 : .92}px Inter`; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillStyle = '#FFFFFF';
+  c.fillText(done ? 'SUBSCRIBED' : 'SUBSCRIBE', done ? -.55 : 0, -.4); c.restore();
+  if (done) { const [bx, by] = P2S(x + 3.7, h + .4); const k = eBack(prog(t, T('cta2') + 1.95, T('cta2') + 2.2)); c.save(); c.translate(bx, by); c.rotate(Math.sin((t - T('cta2')) * 22) * .35 * Math.exp(-(t - T('cta2') - 1.95) * 2)); c.scale(k, k);
+    c.beginPath(); c.moveTo(-14, 10); c.quadraticCurveTo(-14, -16, 0, -17); c.quadraticCurveTo(14, -16, 14, 10); c.lineTo(18, 14); c.lineTo(-18, 14); c.closePath(); c.fillStyle = C.gold; c.fill(); c.lineWidth = 3; c.strokeStyle = C.ink; c.stroke(); ell(c, 0, 18, 5, 5, C.gold, C.ink, 3); c.restore();
+    sparks(c, bx, by, t - T('cta2') - 1.95, 18, 5, 500, '#FFE36A', 400); }
+}
+function likeIcon(c, t) {
+  const t0 = T('cta1') + .1; if (t < t0) return; const [x, y] = P2S(31.4, ROOF + 9.4);
+  const hit = T('cta1') + .85, smashed = t > hit; const k = eBack(prog(t, t0, t0 + .3)) * (smashed ? 1 - .3 * Math.exp(-(t - hit) * 10) * Math.cos((t - hit) * 30) : 1);
+  const fade = 1 - prog(t, T('cta2') + .2, T('cta2') + .6); if (fade <= 0) return;
+  c.save(); c.globalAlpha = fade; c.translate(x, y); c.scale(k, k); c.rotate(smashed ? -.12 : 0);
+  c.beginPath(); c.arc(0, 0, 70, 0, 7); c.fillStyle = smashed ? '#16B8B0' : '#FFFFFF'; c.shadowColor = 'rgba(0,0,0,.35)'; c.shadowBlur = 18; c.fill(); c.shadowColor = 'transparent'; c.lineWidth = 6; c.strokeStyle = C.ink; c.stroke();
+  const fg = smashed ? '#FFFFFF' : C.ink;
+  c.fillStyle = fg; c.beginPath(); c.roundRect(-36, -6, 16, 44, 4); c.fill();
+  c.beginPath(); c.moveTo(-14, -6); c.lineTo(-2, -38); c.quadraticCurveTo(10, -44, 10, -30); c.lineTo(6, -10); c.lineTo(30, -10); c.quadraticCurveTo(40, -8, 36, 4); c.lineTo(28, 32); c.quadraticCurveTo(25, 38, 18, 38); c.lineTo(-14, 38); c.closePath(); c.fill();
+  c.restore();
+  if (smashed) { burst(c, x, y, t - hit, 150, '#6FE3DC'); comic(c, 'LIKED!', x - 40, y - 120, t - hit, '#6FE3DC', 70, -6); }
+}
+function commentBubble(c, t) {
+  const t0 = T('cta3') - .05; if (t < t0) return; const k = eBack(prog(t, t0, t0 + .3));
+  const opts = ['A VOLCANO?', 'AN EARTHQUAKE?', 'AN ASTEROID?', 'A HURRICANE?', 'AN AVALANCHE?']; const o = opts[Math.floor((t - t0) / .45) % opts.length];
+  c.save(); c.translate(500, 1235); c.scale(k, k);
+  c.beginPath(); c.roundRect(-300, -110, 600, 190, 34); c.moveTo(150, 80); c.lineTo(250, 140); c.lineTo(220, 80); c.closePath();
+  c.fillStyle = '#FFFFFF'; c.shadowColor = 'rgba(0,0,0,.35)'; c.shadowBlur = 22; c.fill(); c.shadowColor = 'transparent'; c.lineWidth = 6; c.strokeStyle = C.ink; c.stroke();
+  text(c, 'STIX VS ... NEXT?', 0, -58, 40, C.ink, { weight: 900 });
+  c.save(); c.beginPath(); c.roundRect(-250, -20, 500, 76, 20); c.fillStyle = C.scarf; c.fill(); c.restore();
+  text(c, o, 0, 18, 50, '#FFFFFF', { stroke: 8 });
+  c.restore();
+  // arrow toward the comment button on the right rail
+  const a = prog(t, t0 + .3, t0 + .6); if (a > 0) { const bob = Math.sin(t * 9) * 8; c.save(); c.globalAlpha = a; c.lineCap = 'round'; c.lineWidth = 12; c.strokeStyle = C.gold;
+    c.beginPath(); c.moveTo(815, 1200); c.quadraticCurveTo(930, 1200, 965 + bob, 1290); c.stroke(); poly(c, [[978 + bob, 1318], [935 + bob, 1290], [985 + bob, 1272]], C.gold, C.ink, 3);
+    text(c, 'COMMENT', 900, 1140, 34, C.gold, { stroke: 7 }); c.restore(); }
 }
 // ---------------------------------------------------------------- water
 function surfaceY(x, h, tw) { const A = clamp(.1 + h * .022, .1, .9); return h + A * (Math.sin(x * .35 - tw * 2.2) * .6 + Math.sin(x * .9 + tw * 3.1) * .25 + Math.sin(x * .13 + tw * 1.1) * .4); }
@@ -295,7 +386,7 @@ function lituya(c, t) {
   return ru;
 }
 function explainer(c, t, ru) {
-  const a1 = prog(t, T('c1'), T('c1') + .35) * (1 - prog(t, T('out'), T('out') + .3));
+  const a1 = prog(t, T('c1'), T('c1') + .35) * (1 - prog(t, T('cta1') - .3, T('cta1')));
   if (a1 <= 0) return; c.save(); c.globalAlpha = a1;
   // 524 m dashed line + run-up arrow
   const [rx, ry] = P2S(slopeXat(524), 524); c.setLineDash([12, 10]); line(c, [[60, ry], [rx, ry]], 3, '#FFD23F'); c.setLineDash([]);
@@ -333,7 +424,7 @@ function captions(c, t) {
 }
 function render(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
-  const c = ctx; CAM = camAt(t); const li = t >= BACK0 + .6 ? -1 : levelIndex(t); const h = waterH(t);
+  const c = ctx; CAM = camAt(t); const li = t >= BACK0 ? -1 : levelIndex(t); const h = waterH(t);
   sky(c, t, Math.max(li, 0));
   const ru = t >= ZOOM0 && t < BACK1 ? 524 * eOut(prog(t, SURGE0, SURGE1)) * (1 - prog(t, BACK0, BACK0 + .5)) : 0;
   terrain(c, t, ru);
@@ -345,29 +436,28 @@ function render(t) {
   const f2 = h > .7 && t < BACK0 ? (wTime(t) - wTime(T('l2') + .7)) : 0;
   if (f2 > 0) car(c, 47 + f2 * 1.3, h - .45 + Math.sin(tw * 2.2 + 1) * .12, Math.sin(tw * 1.3 + 2) * .1, '#3A7AE0'); else car(c, 47, 0, 0, '#3A7AE0');
   lamp(c, 20, t);
-  const xray = eIO(prog(t, CLIMB0 - .1, CLIMB0 + .25)) * (1 - eIO(prog(t, CLIMB1, CLIMB1 + .4)));
-  building(c, t, xray);
+  building(c, t, 0);
+  fireEscape(c, t);
   youMarker(c, t, h);
   lituya(c, t);
   // debris
   if (h > 4 && t < BACK0) for (let i = 0; i < 7; i++) { const x = ((rnd(i) * 70 + tw * (1.4 + rnd(i * 2))) % 70) - 10; const yy = surfaceY(x, h, tw) - .3; const [sx, sy] = P2S(x, yy); c.save(); c.translate(sx, sy); c.rotate(Math.sin(tw + i) * .3); poly(c, [[-.9 * CAM.s, -.2 * CAM.s], [.9 * CAM.s, -.3 * CAM.s], [.9 * CAM.s, .2 * CAM.s], [-.9 * CAM.s, .25 * CAM.s]], i % 2 ? '#8A5A30' : '#B88A50', C.ink, 1.5); c.restore(); }
-  // stix (true scale)
-  let sx = 21.9, sh = BAL, st = 'idle';
-  if (t > CLIMB0) { const u = prog(t, CLIMB0, CLIMB1); if (u < .1) { sx = lerp(21.9, 24.5, u / .1); st = 'run'; } else if (u < 1) { const k = (u - .1) / .9; sh = lerp(BAL, ROOF, k); const zz = (k * 11) % 1; sx = lerp(24, 26.4, zz < .5 ? zz * 2 : 2 - zz * 2); st = 'run'; } else { sx = 25.8; sh = ROOF; st = t < T('l8') ? 'wave' : 'idle'; } }
+  const S = stixPath(t);
   water(c, t, h);
   for (let i = 0; i < 9; i++) splash(c, t, i);
-  miniStix(c, sx, sh, t, st);
-  if (CAM.s > 8 && t > .2) { const [ax, ay] = P2S(sx, sh + 1.75); const bob = Math.sin(t * 5) * 5; poly(c, [[ax - 9, ay - 26 + bob], [ax + 9, ay - 26 + bob], [ax, ay - 12 + bob]], C.gold, C.ink, 2.5); if (t < T('l2')) text(c, 'STIX', ax, ay - 46 + bob, 24, C.gold, { stroke: 6 }); }
+  subscribeRaft(c, t);
+  miniStix(c, S.x, S.h, t, S.st, S.face);
+  likeIcon(c, t);
+  if (CAM.s > 8 && t > .2 && t < BACK0) { const [ax, ay] = P2S(S.x, S.h + 1.75); const bob = Math.sin(t * 5) * 5; poly(c, [[ax - 9, ay - 26 + bob], [ax + 9, ay - 26 + bob], [ax, ay - 12 + bob]], C.gold, C.ink, 2.5); if (t < T('l2') || CAM.s < 25) text(c, 'STIX', ax, ay - 46 + bob, 24, C.gold, { stroke: 6 }); if (t > T('l1') + .5 && t < BACK0 && CAM.s < 45) text(c, '+' + Math.max(0, S.h - h).toFixed(1) + ' m', ax + 34, ay - 20 + bob, 22, '#FFFFFF', { stroke: 5, weight: 800, align: 'left' }); }
   // level 6 seawall reference
   const sw = prog(t, T('l6') + .3, T('l6') + .6) * (1 - prog(t, T('l7'), T('l7') + .3)); if (sw > 0) { c.save(); c.globalAlpha = sw; c.setLineDash([14, 10]); line(c, [[0, Y(10)], [W, Y(10)]], 4, '#FFD23F'); c.setLineDash([]); text(c, 'TYPICAL SEAWALL ≈ 10 m', 560, Y(10) - 26, 30, C.gold, { stroke: 7 }); c.restore(); }
   // level 7 pause overlay
   if (t > PAUSE0 && t < PAUSE1 + .2) { const a = clamp((t - PAUSE0) * 5) * (1 - clamp((t - PAUSE1) * 5)); c.save(); c.globalAlpha = a * .18; c.fillStyle = '#A0C8FF'; c.fillRect(0, 0, W, H); c.globalAlpha = a; c.beginPath(); c.roundRect(W - 300, 540, 250, 64, 18); c.fillStyle = 'rgba(14,17,30,.88)'; c.fill(); poly(c, [[W - 276, 556], [W - 266, 556], [W - 266, 588], [W - 276, 588]], '#FFFFFF'); poly(c, [[W - 258, 556], [W - 248, 556], [W - 248, 588], [W - 258, 588]], '#FFFFFF'); text(c, 'PAUSED', W - 160, 572, 34, '#FFFFFF', { weight: 900 }); c.restore(); }
   explainer(c, t, ru);
-  ruler(c, t, h);
+  if (t < BACK0) ruler(c, t, h);
   vignette(c, .35);
-  pip(c, t, h, Math.max(li, 0));
   hud(c, t, li);
-  if (t > T('out') + .1) { const a = eBack(prog(t, T('out') + .1, T('out') + .4)) * (1 - prog(t, BACK1 - .5, BACK1)); if (a > 0) { text(c, 'WHICH LEVEL', W / 2, 640, 74 * a, '#FFFFFF', { stroke: 12 }); text(c, 'COULD YOU SURVIVE?', W / 2, 730, 74 * a, C.gold, { stroke: 12 }); } }
+  commentBubble(c, t);
   text(c, '@CRAZELTIPS', W / 2, 1530, 30, 'rgba(255,255,255,.55)', { weight: 800, stroke: 5, sc: 'rgba(0,0,0,.4)' });
   captions(c, t);
 }
