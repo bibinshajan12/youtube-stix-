@@ -1,5 +1,5 @@
 # STIX vs Level 1 to 10 Tsunami
-Packed: 2026-11-08 22:46 IST · Channel: CRAZELTIPS · Status: ready to upload (evening slot)
+Packed: 2026-11-08 22:46 IST · Channel: CRAZELTIPS · Status: ready to upload (evening slot) · **v2**
 
 **Unzip `stix-vs-level-1-to-10-tsunami.zip` to get:**
 | File | What it is |
@@ -16,3 +16,8 @@ Packed: 2026-11-08 22:46 IST · Channel: CRAZELTIPS · Status: ready to upload (
 **Format:** Stix, the building and the camera stay fixed at true metre scale while the water rises in levels.
 The water pauses at level 7 while Stix runs up the stairwell. At level 10 the camera pulls back to show Lituya Bay's landslide and the mountainside run-up.
 Numbers are run-up heights, not wave heights. Levels 1–7 are illustrative; 8–10 are recorded events.
+
+**v2 changes:**
+- Sequential camera: wide hook → close street level for levels 1–4 → steps back for 5–6 → full tower for 7–9 → 600 m reveal at 10.
+- Redrawn props: rounded shaded cars with tinted windows and rims; a tower with a glass lobby, canopy, framed reflective windows, front balconies, accent band, rooftop tank and antenna; tiled-roof houses; a curved palm; a street lamp and road.
+- STIX switches to the full character rig when the camera is close.
