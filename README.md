@@ -9,3 +9,4 @@ Each Short folder has:
 | Date | Time (IST) | Short | Slot | Status |
 |---|---|---|---|---|
 | 2026-11-08 | 21:20 | [STIX vs 10 Ancient Weapons](2026-11-08/2120_IST_stix-vs-10-ancient-weapons/) | Evening 6:00 PM | Ready to upload |
+| 2026-11-08 | 22:46 | [STIX vs Level 1 to 10 Tsunami](2026-11-08/2246_IST_stix-vs-level-1-to-10-tsunami/) | Evening 6:00 PM | Ready to upload |

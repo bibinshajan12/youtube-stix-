@@ -64,6 +64,7 @@ function ik2(a, b, L1, L2, bend) {
   return [[a[0] + Math.cos(ang) * L1, a[1] + Math.sin(ang) * L1], [a[0] + dx, a[1] + dy]];
 }
 function text(c, s, x, y, size, fill, opt = {}) {
+  if (!(size >= 2)) return;
   c.save(); c.font = `${opt.weight || 900} ${size}px Inter`; c.textAlign = opt.align || 'center'; c.textBaseline = 'middle';
   if (opt.skew) c.transform(1, 0, -opt.skew, 1, y * opt.skew, 0);
   if (opt.shadow) { c.shadowColor = opt.shadow; c.shadowBlur = opt.blur || 18; c.shadowOffsetY = opt.sy || 6; }
